@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title> Google map init </title>
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+    <div style="margin-bottom:2%;"> 
+      <label> Informe a localidade </label>
+      <input 
+        id ="places" 
+        name="places" 
+        style="width:100%" 
+        placeholder="Informe a localidade"
+      /> 
+    </div>
+
+    <div id="map" style="width:1200px; height: 500px;"></div>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgpAVPnglVxuC8B5qhLIscm3D5uo-HAr4&callback=initMap&v=weekly&libraries=places&region=pt-BR"
+      defer
+    ></script>
+  </body>
+</html>
