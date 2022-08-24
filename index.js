@@ -1,22 +1,28 @@
 // Initialize and add the map
 function initMap() {
   const input = document.getElementById('places');
-  const uluru = { lat: -25.344, lng: 120.031 };
+
+  const firstLocation = {
+    lat: -13.008923792, 
+    lng: -38.5234683228, 
+  };
 
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 10,
-    center: uluru,
+    zoom: 15,
+    center: firstLocation,
   });
 
   const marker = new google.maps.Marker({
-    position: uluru,
-    map: map,
-    animation: google.maps.Animation.DROP,
+    position: firstLocation,
+    animation: google.maps.Animation.TA,
   });
 
+  marker.setMap(map);
+  polygon.setMap(map);
+  
   const places = new google.maps.places.Autocomplete(input)
   places.bindTo("bounds", map);
-  
+
   places.addListener('place_changed', () => {
       const place = places.getPlace();
       
@@ -29,7 +35,6 @@ function initMap() {
         lat: place.geometry.location.lat(),
         lng: place.geometry.location.lng()
       } 
-
 
       map.setCenter(location);
       map.setZoom(20);
